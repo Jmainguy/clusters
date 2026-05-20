@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: verboseresume-com
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: webapp
+    repoURL: zot.soh.re
+    targetRevision: 2.4.0
+    helm:
+      values: |
+        name: verboseresume
+        replicaCount: 1
+        service:
+          type: ClusterIP
+          port: 80
+          targetPort: 8080
+          name: verboseresume
+        virtualService:
+          hosts:
+            - "verboseresume.com"
+            - "www.verboseresume.com"
+          redirectToPrimary: true
+        image:
+          repository: zot.soh.re
+          name: verboseresume/verboseresume
+          tag: "v1.0.0"
+          pullPolicy: Always
+        env:
+          PORT: "8080"
+
+  destination:
+    name: k3s.soh.re
+    namespace: verboseresume-com
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true
