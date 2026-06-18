@@ -12,6 +12,8 @@ spec:
     helm:
       releaseName: right
       values: |
+        wordpress:
+          image: wordpress:7.0-php8.3-apache
         virtualService: 
           redirectToPrimary: true
           hosts:
