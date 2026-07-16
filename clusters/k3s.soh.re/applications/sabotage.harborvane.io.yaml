@@ -24,8 +24,8 @@ spec:
         image:
           repository: zot.soh.re
           name: harborvane/sabotage/sabotage
-          tag: "latest"
-          pullPolicy: Always
+          tag: "v1.2.0"
+          pullPolicy: IfNotPresent
         secret:
           enabled: false
 
