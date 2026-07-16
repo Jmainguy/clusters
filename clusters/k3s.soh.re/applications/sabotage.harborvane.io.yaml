@@ -23,7 +23,7 @@ spec:
             - "sabotage.harborvane.io"
         image:
           repository: zot.soh.re
-          name: harborvane/sabotage
+          name: harborvane/sabotage/sabotage
           tag: "latest"
           pullPolicy: Always
         secret:
