@@ -25,8 +25,8 @@ spec:
           redirectToPrimary: true
         image:
           repository: zot.soh.re
-          name: standouthost/ahhc
-          tag: "v1.0.0"
+          name: standouthost/ahhc.org
+          tag: "latest"
           pullPolicy: Always
         secret:
           enabled: false
