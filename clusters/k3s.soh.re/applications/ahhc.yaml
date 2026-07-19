@@ -29,7 +29,8 @@ spec:
           tag: "v1.1.0"
           pullPolicy: Always
         secret:
-          enabled: false
+          enabled: true
+          name: ahhc-config
         env:
           ADDR: ":8080"
 
