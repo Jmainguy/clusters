@@ -6,17 +6,33 @@ metadata:
 spec:
   project: default
   source:
-    chart: wordpress
+    chart: webapp
     repoURL: zot.soh.re
-    targetRevision: 1.2.0
+    targetRevision: 3.1.0
     helm:
-      releaseName: ahhc
       values: |
-        virtualService: 
-          redirectToPrimary: true
+        name: ahhc
+        replicaCount: 1
+        service:
+          type: ClusterIP
+          port: 80
+          targetPort: 8080
+          name: ahhc
+        virtualService:
           hosts:
             - "ahhc.org"
             - "www.ahhc.org"
+          redirectToPrimary: true
+        image:
+          repository: zot.soh.re
+          name: standouthost/ahhc
+          tag: "latest"
+          pullPolicy: Always
+        secret:
+          enabled: true
+          name: ahhc-config
+        env:
+          ADDR: ":8080"
 
   destination:
     name: k3s.soh.re
@@ -28,4 +44,3 @@ spec:
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true
-
