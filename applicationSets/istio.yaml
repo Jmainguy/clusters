@@ -36,6 +36,9 @@ spec:
         name: '{{.cluster.name}}'
         namespace: istio-system  # Namespace where resources should be deployed
       syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
         syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
