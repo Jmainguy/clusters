@@ -8,7 +8,7 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
     - git:
-        repoURL: https://github.com/Standouthost/clusters.git
+        repoURL: https://github.com/jmainguy/clusters.git
         revision: HEAD
         files:
           - path: "clusters/**/config.json"  # Targeting all config.json in clusters
@@ -19,7 +19,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/Standouthost/helm-charts
+        repoURL: https://github.com/jmainguy/helm-charts
         targetRevision: main
         path: istio
         helm:
