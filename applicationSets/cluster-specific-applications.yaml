@@ -8,7 +8,7 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
     - git:
-        repoURL: https://github.com/Standouthost/clusters.git
+        repoURL: https://github.com/jmainguy/clusters.git
         revision: HEAD
         files:
           - path: "clusters/**/config.json"  # Targeting all config.json in clusters
@@ -18,7 +18,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/Standouthost/clusters
+        repoURL: https://github.com/jmainguy/clusters
         targetRevision: main
         path: clusters/{{.cluster.name}}/applications
       destination:
