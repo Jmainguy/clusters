@@ -27,9 +27,6 @@ spec:
         name: '{{.cluster.name}}'
         namespace: cert-manager  # Namespace where resources should be deployed
       syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
         syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true

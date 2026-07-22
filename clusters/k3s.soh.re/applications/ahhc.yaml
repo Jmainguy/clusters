@@ -38,9 +38,6 @@ spec:
     name: k3s.soh.re
     namespace: ahhc
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true

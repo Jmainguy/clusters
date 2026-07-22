@@ -24,9 +24,6 @@ spec:
     name: k3s.soh.re
     namespace: jellyfin
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true

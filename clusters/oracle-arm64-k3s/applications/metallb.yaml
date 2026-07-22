@@ -16,9 +16,6 @@ spec:
     name: oracle-arm64-k3s
     namespace: metallb
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true

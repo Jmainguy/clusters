@@ -35,9 +35,6 @@ spec:
     name: k3s.soh.re
     namespace: jmainguy-com
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true

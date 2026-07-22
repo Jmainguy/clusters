@@ -33,9 +33,6 @@ spec:
     name: k3s.soh.re
     namespace: sabotage-harborvane-io
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true

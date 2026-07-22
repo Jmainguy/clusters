@@ -15,5 +15,3 @@ spec:
     path: applicationSets
     repoURL: https://github.com/standouthost/clusters
     targetRevision: HEAD
-  syncPolicy:
-    automated: {}

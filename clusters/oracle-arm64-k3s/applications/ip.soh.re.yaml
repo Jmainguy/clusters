@@ -50,9 +50,6 @@ spec:
     name: oracle-arm64-k3s
     namespace: ip-soh-re
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true
