@@ -6,19 +6,29 @@ metadata:
 spec:
   project: default
   source:
-    chart: wordpress
+    chart: webapp
     repoURL: zot.soh.re
-    targetRevision: 1.2.1
+    targetRevision: 2.4.0
     helm:
-      releaseName: right
+      releaseName: rightway
       values: |
-        wordpress:
-          image: wordpress:7.0-php8.3-apache
-        virtualService: 
+        name: rightway
+        replicaCount: 1
+        service:
+          type: ClusterIP
+          port: 80
+          targetPort: 8080
+          name: rightway
+        virtualService:
           redirectToPrimary: true
           hosts:
             - "rightwaypropertycare.com"
             - "www.rightwaypropertycare.com"
+        image:
+          repository: zot.standouthost.com/standouthost
+          name: rightwaypropertycare.com
+          tag: "latest"
+          pullPolicy: Always
 
   destination:
     name: k3s.soh.re
@@ -30,4 +40,3 @@ spec:
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true
-
