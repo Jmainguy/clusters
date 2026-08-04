@@ -24,7 +24,7 @@ spec:
         image:
           repository: zot.soh.re
           name: condo/condo
-          tag: "v1.3.0'
+          tag: "v1.3.0"
           pullPolicy: Always
         secret:
           enabled: true
