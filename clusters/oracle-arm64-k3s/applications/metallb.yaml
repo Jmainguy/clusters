@@ -15,6 +15,12 @@ spec:
   destination:
     name: oracle-arm64-k3s
     namespace: metallb
+  ignoreDifferences:
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: bgppeers.metallb.io
+    jsonPointers:
+    - /spec/conversion/webhook/clientConfig/caBundle
   syncPolicy:
     automated:
       prune: true
@@ -22,4 +28,3 @@ spec:
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true
-

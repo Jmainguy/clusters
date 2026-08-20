@@ -12,6 +12,12 @@ spec:
   destination:
     name: k3s.soh.re
     namespace: zot
+  ignoreDifferences:
+  - group: apps
+    kind: StatefulSet
+    name: zot
+    jqPathExpressions:
+    - .spec.volumeClaimTemplates[]?.status
   syncPolicy:
     automated:
       prune: true
@@ -19,4 +25,3 @@ spec:
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true
-

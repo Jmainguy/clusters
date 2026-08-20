@@ -12,6 +12,31 @@ spec:
   destination:
     name: k3s.soh.re
     namespace: immich
+  ignoreDifferences:
+  - group: postgresql.cnpg.io
+    kind: Cluster
+    name: immich-postgres
+    jsonPointers:
+    - /spec/affinity
+    - /spec/enablePDB
+    - /spec/enableSuperuserAccess
+    - /spec/failoverDelay
+    - /spec/logLevel
+    - /spec/maxSyncReplicas
+    - /spec/minSyncReplicas
+    - /spec/monitoring
+    - /spec/postgresGID
+    - /spec/postgresUID
+    - /spec/postgresql/parameters
+    - /spec/postgresql/syncReplicaElectionConstraint
+    - /spec/primaryUpdateMethod
+    - /spec/primaryUpdateStrategy
+    - /spec/replicationSlots
+    - /spec/resources
+    - /spec/smartShutdownTimeout
+    - /spec/startDelay
+    - /spec/stopDelay
+    - /spec/switchoverDelay
   syncPolicy:
     automated:
       prune: true
@@ -19,4 +44,3 @@ spec:
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true
-
