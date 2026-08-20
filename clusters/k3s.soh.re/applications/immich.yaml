@@ -37,6 +37,10 @@ spec:
     - /spec/startDelay
     - /spec/stopDelay
     - /spec/switchoverDelay
+    jqPathExpressions:
+    - .spec.managed.roles[]?.connectionLimit
+    - .spec.managed.roles[]?.ensure
+    - .spec.managed.roles[]?.inherit
   syncPolicy:
     automated:
       prune: true

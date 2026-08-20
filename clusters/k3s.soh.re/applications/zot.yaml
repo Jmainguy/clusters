@@ -17,6 +17,9 @@ spec:
     kind: StatefulSet
     name: zot
     jqPathExpressions:
+    - .spec.volumeClaimTemplates[]?.apiVersion
+    - .spec.volumeClaimTemplates[]?.kind
+    - .spec.volumeClaimTemplates[]?.spec.volumeMode
     - .spec.volumeClaimTemplates[]?.status
   syncPolicy:
     automated:
