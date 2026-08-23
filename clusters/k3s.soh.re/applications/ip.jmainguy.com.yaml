@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    chart: webapp
+    chart: jmainguy/helm-webapp
     repoURL: zot.soh.re
-    targetRevision: 2.4.0
+    targetRevision: 4.2.2
     helm:
       values: |
         name: ip-jmainguy-com
