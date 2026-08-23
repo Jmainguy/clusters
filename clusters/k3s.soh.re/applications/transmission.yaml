@@ -8,7 +8,7 @@ spec:
   source:
     chart: jmainguy/helm-webapp
     repoURL: zot.soh.re
-    targetRevision: 4.2.2
+    targetRevision: 4.2.3
     helm:
       values: |
         name: transmission
@@ -33,12 +33,15 @@ spec:
            - name: downloads
              mountPath: /downloads              # Where to mount in the container
              size: 400Gi
+             accessMode: ReadWriteOnce
            - name: config
              mountPath: /config
              size: 1Gi
+             accessMode: ReadWriteOnce
            - name: watch
              mountPath: /watch
              size: 1Gi
+             accessMode: ReadWriteOnce
 
   destination:
     name: k3s.soh.re
