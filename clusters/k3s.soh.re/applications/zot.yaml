@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: zot
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/compare-options: ServerSideDiff=true
 spec:
   project: default
   source:
@@ -14,23 +16,6 @@ spec:
   destination:
     name: k3s.soh.re
     namespace: zot
-  ignoreDifferences:
-  - group: apps
-    kind: StatefulSet
-    name: zot-local-primary
-    jqPathExpressions:
-    - .spec.volumeClaimTemplates[]?.apiVersion
-    - .spec.volumeClaimTemplates[]?.kind
-    - .spec.volumeClaimTemplates[]?.spec.volumeMode
-    - .spec.volumeClaimTemplates[]?.status
-  - group: apps
-    kind: StatefulSet
-    name: zot-local-standby
-    jqPathExpressions:
-    - .spec.volumeClaimTemplates[]?.apiVersion
-    - .spec.volumeClaimTemplates[]?.kind
-    - .spec.volumeClaimTemplates[]?.spec.volumeMode
-    - .spec.volumeClaimTemplates[]?.status
   syncPolicy:
     automated:
       prune: true
