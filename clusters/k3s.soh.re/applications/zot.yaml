@@ -13,11 +13,6 @@ spec:
     path: zot
     helm:
       releaseName: zot-ha
-      values: |
-        notationTrust:
-          enabled: true
-          storeName: passbolt
-          resourceId: 48ae833b-b591-4ca8-92bf-7ec00d07deca
   destination:
     name: k3s.soh.re
     namespace: zot
