@@ -8,14 +8,15 @@ spec:
   source:
     chart: jmainguy/helm-webapp
     repoURL: zot.soh.re
-    targetRevision: 4.2.2
+    targetRevision: 4.2.4
     helm:
       values: |
         name: statuscode-soh-re
         image:
-          name: statuscode
-          tag: v1.0.1
-          pullPolicy: "Always"
+          repository: zot.soh.re
+          name: jmainguy/statuscode
+          tag: v2.0.0
+          pullPolicy: IfNotPresent
         service:
           type: ClusterIP
           port: 80
