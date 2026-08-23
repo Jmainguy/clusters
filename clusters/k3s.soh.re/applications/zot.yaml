@@ -9,13 +9,15 @@ spec:
     repoURL: https://github.com/jmainguy/helm-charts
     targetRevision: main
     path: zot
+    helm:
+      releaseName: zot-ha
   destination:
     name: k3s.soh.re
     namespace: zot
   ignoreDifferences:
   - group: apps
     kind: StatefulSet
-    name: zot
+    name: zot-ha
     jqPathExpressions:
     - .spec.volumeClaimTemplates[]?.apiVersion
     - .spec.volumeClaimTemplates[]?.kind
