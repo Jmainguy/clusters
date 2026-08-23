@@ -32,7 +32,7 @@ spec:
         postgres:
           enabled: true
           name: postgres-cluster
-          instances: 1
+          instances: 2
           storage:
             size: 10Gi
           bootstrap:
@@ -50,4 +50,3 @@ spec:
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true
-
