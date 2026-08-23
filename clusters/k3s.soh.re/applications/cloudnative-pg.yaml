@@ -8,7 +8,7 @@ spec:
   source:
     chart: cloudnative-pg
     repoURL: https://cloudnative-pg.github.io/charts
-    targetRevision: 0.22.1
+    targetRevision: 0.29.0
   destination:
     name: k3s.soh.re
     namespace: cloudnative-pg
@@ -19,4 +19,3 @@ spec:
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true
-
