@@ -8,7 +8,7 @@ spec:
   source:
     chart: jmainguy/helm-webapp
     repoURL: zot.soh.re
-    targetRevision: 4.2.2
+    targetRevision: 4.2.4
     helm:
       values: |
         name: condo
@@ -23,9 +23,9 @@ spec:
             - "condo.jmainguy.com"
         image:
           repository: zot.soh.re
-          name: condo/condo
-          tag: "v1.3.0"
-          pullPolicy: Always
+          name: jmainguy/condo
+          tag: "v2.0.2"
+          pullPolicy: IfNotPresent
         secret:
           enabled: true
           name: condo-secret
