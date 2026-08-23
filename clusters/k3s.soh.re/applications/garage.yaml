@@ -5,10 +5,55 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: https://github.com/jmainguy/helm-charts
-    targetRevision: main
-    path: garage
+  sources:
+    - repoURL: https://github.com/deuxfleurs-org/garage
+      targetRevision: v2.3.0
+      path: script/helm/garage
+      helm:
+        releaseName: garage
+        values: |
+          garage:
+            replicationFactor: "1"
+            consistencyMode: consistent
+            metadataAutoSnapshotInterval: 6h
+            existingRpcSecret: garage-rpc
+            kubernetesSkipCrd: true
+            s3:
+              api:
+                region: garage
+                rootDomain: ".garage.garage.svc.cluster.local"
+          deployment:
+            replicaCount: 1
+          image:
+            repository: dxflrs/amd64_garage
+            tag: "v2.3.0@sha256:dac0c92add4f1a0b41035e94b41036a270ffbe88a37c7ac9c3f19e6dc5bdccf2"
+          persistence:
+            enabled: true
+            meta:
+              storageClass: longhorn
+              size: 2Gi
+            data:
+              storageClass: longhorn
+              size: 200Gi
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              memory: 1Gi
+          readinessProbe:
+            httpGet: {path: /health, port: 3903}
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: {path: /health, port: 3903}
+            initialDelaySeconds: 15
+            periodSeconds: 30
+    - repoURL: https://github.com/jmainguy/helm-charts
+      targetRevision: main
+      path: garage
+      helm:
+        releaseName: garage
   destination:
     name: k3s.soh.re
     namespace: garage
@@ -19,4 +64,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
-
