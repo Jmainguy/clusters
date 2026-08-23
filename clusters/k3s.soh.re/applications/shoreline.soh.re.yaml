@@ -24,7 +24,7 @@ spec:
         image:
           repository: zot.soh.re
           name: jmainguy/shoreline
-          tag: "v1.0.1"
+          tag: "v1.0.2"
           pullPolicy: IfNotPresent
 
   destination:
