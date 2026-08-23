@@ -12,7 +12,7 @@ spec:
     helm:
       values: |
         name: ip-jmainguy-com
-        replicaCount: 2
+        replicaCount: 1
         image:
           name: trafex/php-nginx
           repository: docker.io
@@ -56,4 +56,3 @@ spec:
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true
-
