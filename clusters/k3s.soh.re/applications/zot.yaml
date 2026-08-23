@@ -17,7 +17,15 @@ spec:
   ignoreDifferences:
   - group: apps
     kind: StatefulSet
-    name: zot-ha
+    name: zot-local-primary
+    jqPathExpressions:
+    - .spec.volumeClaimTemplates[]?.apiVersion
+    - .spec.volumeClaimTemplates[]?.kind
+    - .spec.volumeClaimTemplates[]?.spec.volumeMode
+    - .spec.volumeClaimTemplates[]?.status
+  - group: apps
+    kind: StatefulSet
+    name: zot-local-standby
     jqPathExpressions:
     - .spec.volumeClaimTemplates[]?.apiVersion
     - .spec.volumeClaimTemplates[]?.kind
