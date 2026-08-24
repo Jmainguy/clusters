@@ -14,9 +14,10 @@ spec:
         name: jmainguy
         replicaCount: 1
         image:
-          name: autoweb
-          tag: v1.0.0
-          pullPolicy: "Always"
+          repository: zot.soh.re
+          name: jmainguy/jmainguy.com
+          tag: v1.0.1
+          pullPolicy: Always
         service:
           type: ClusterIP
           port: 80
@@ -28,9 +29,6 @@ spec:
             - "jmainguy.com"
             - "www.jmainguy.com"
           redirectToPrimary: true
-        env:
-          REPO_URL: "https://github.com/jmainguy/jmainguy.com"
-
   destination:
     name: k3s.soh.re
     namespace: jmainguy-com
