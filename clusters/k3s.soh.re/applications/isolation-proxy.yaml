@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: isolation-proxy
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: jmainguy/isolation-proxy-operator
+    repoURL: zot.soh.re
+    targetRevision: 1.1.2
+    helm:
+      releaseName: isolation-proxy-operator
+      values: |
+        image:
+          repository: zot.soh.re/jmainguy/isolation-proxy
+          tag: v1.1.2
+        proxyImage:
+          repository: zot.soh.re/jmainguy/isolation-proxy
+          tag: v1.1.2
+        leaderElection:
+          enabled: false
+  destination:
+    name: k3s.soh.re
+    namespace: isolation-proxy-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true
