@@ -9,6 +9,10 @@ spec:
     repoURL: https://github.com/jmainguy/helm-charts
     targetRevision: main
     path: sohre
+    helm:
+      parameters:
+      - name: image.tag
+        value: v1.4.0
   destination:
     name: k3s.soh.re
     namespace: soh-re
@@ -19,4 +23,3 @@ spec:
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true
-
