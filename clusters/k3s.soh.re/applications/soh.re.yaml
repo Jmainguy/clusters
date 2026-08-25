@@ -12,7 +12,7 @@ spec:
     helm:
       parameters:
       - name: image.tag
-        value: v1.5.0
+        value: v1.5.1
   destination:
     name: k3s.soh.re
     namespace: soh-re

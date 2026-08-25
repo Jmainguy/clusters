@@ -14,10 +14,10 @@ spec:
       values: |
         image:
           repository: zot.soh.re/jmainguy/isolation-proxy
-          tag: v1.1.2
+          tag: v1.1.3
         proxyImage:
           repository: zot.soh.re/jmainguy/isolation-proxy
-          tag: v1.1.2
+          tag: v1.1.3
         leaderElection:
           enabled: false
   destination:
