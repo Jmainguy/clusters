@@ -8,7 +8,7 @@ spec:
   source:
     chart: jmainguy/helm-webapp
     repoURL: zot.soh.re
-    targetRevision: 4.2.2
+    targetRevision: 4.2.3
     helm:
       values: |
         name: nextcloud
@@ -26,10 +26,11 @@ spec:
         virtualService: 
           hosts:
             - "nextcloud.soh.re"
-        pvc:
-          enabled: true
-          mountPath: /var/www/html
-          size: "80Gi"
+        persistence:
+          - name: data
+            mountPath: /var/www/html
+            size: "80Gi"
+            accessMode: ReadWriteOnce
         postgres:
           enabled: true
           name: postgres-cluster
