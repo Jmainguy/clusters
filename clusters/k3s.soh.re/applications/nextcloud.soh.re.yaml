@@ -18,6 +18,8 @@ spec:
           repository: docker.io
           tag: 34.0.3
           pullPolicy: "Always"
+        env:
+          OVERWRITEPROTOCOL: https
         service:
           type: ClusterIP
           port: 80
