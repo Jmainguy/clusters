@@ -16,7 +16,7 @@ spec:
         image:
           name: nextcloud
           repository: docker.io
-          tag: 32.0.14
+          tag: 33.0.8
           pullPolicy: "Always"
         service:
           type: ClusterIP
