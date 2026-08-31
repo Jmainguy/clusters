@@ -16,7 +16,7 @@ spec:
         image:
           repository: zot.soh.re
           name: jmainguy/jmainguy.com
-          tag: v1.0.2
+          tag: v1.1.0
           pullPolicy: Always
         service:
           type: ClusterIP
