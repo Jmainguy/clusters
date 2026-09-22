@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/Jmainguy/bible-soh-re.git
-    targetRevision: v1.3.0
+    targetRevision: v1.3.1
     path: deploy
   destination:
     name: k3s.soh.re
